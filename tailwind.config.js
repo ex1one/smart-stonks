@@ -1,6 +1,7 @@
-// tailwind.config.js
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 module.exports = {
-  content: ["{pages,app}/**/*.{js,ts,jsx,tsx}"],
+  content: ["{pages,src}/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
     colors: {
@@ -25,7 +26,11 @@ module.exports = {
       pink: "#EA6CBC",
       red: "#FB4539",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Sora", ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 }

@@ -1,0 +1,17 @@
+.lightMain {
+  background-image: url("../../../../public/assets/whiteCircles.png");
+  background-position: 50% 100%;
+}
+
+.darkMain {
+  background-image: url("../../../../public/assets/blackCircles.png");
+  background-position: 50% 100%;
+}
+
+.blur {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+}
+
+.darkBlur {
+  background: linear-gradient(180deg, rgba(6, 7, 20, 0) 0%, #060714 100%);
+}

@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+}
+
+.hasError {
+  border-color: #eb5055;
+}
+
+.hasError:focus {
+  border-color: #eb5055;
+}
+
+.readOnly {
+  box-shadow: rgba(67, 90, 111, 0.14) 0px 0px 0px 1px inset;
+  background-color: rgb(245, 246, 247);
+}
+
+.readOnly:focus {
+  box-shadow: none;
+  cursor: no-drop;
+}
+
+.error {
+  color: #eb5055;
+}

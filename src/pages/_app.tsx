@@ -3,6 +3,7 @@ import { withBlitz } from "src/blitz-client"
 import { ThemeProvider } from "next-themes"
 
 import "src/styles/globals.css"
+import "@fontsource/sora"
 
 function RootErrorFallback({ error }: ErrorFallbackProps) {
   return (
