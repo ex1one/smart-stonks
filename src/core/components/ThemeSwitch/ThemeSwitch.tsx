@@ -10,7 +10,7 @@ export const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
   const [ref, hover] = useHover<HTMLDivElement>()
 
-  const onChangeTheme = (theme: string) => () => {
+  const doChangeTheme = (theme: string) => () => {
     setTheme(theme)
   }
 
@@ -23,16 +23,16 @@ export const ThemeSwitch = () => {
   }
 
   return (
-    <div ref={ref as LegacyRef<HTMLDivElement>} className="transition duration-300 h-5 w-5">
+    <div ref={ref as LegacyRef<HTMLDivElement>} className="h-5 w-5 transition duration-300">
       {theme === "light" ? (
         <Icon
-          onClick={onChangeTheme("dark")}
+          onClick={doChangeTheme("dark")}
           name={hover ? "fill-moon" : "moon"}
           className="h-full w-full cursor-pointer outline-none"
         />
       ) : (
         <Icon
-          onClick={onChangeTheme("light")}
+          onClick={doChangeTheme("light")}
           name={hover ? "fill-sun" : "sun"}
           className="h-full w-full cursor-pointer outline-none"
         />

@@ -22,16 +22,16 @@ type SelectedFilter = (
 interface BotFilterBarItemProps extends Filter {
   filters: TBotFilters
   icon: string
-  onFiltersChange: (filters: TBotFilters) => void
-  onOpenFilters: (value: keyof TBotFilters) => void
+  onFilterClick: (filters: TBotFilters) => void
+  onFilterIconClick: (value: keyof TBotFilters) => void
   isOpenFilter: boolean
 }
 
 export const BotFilterBarItem = ({
-  onFiltersChange,
+  onFilterClick,
   filters,
   isOpenFilter,
-  onOpenFilters,
+  onFilterIconClick,
   icon,
   values,
   name,
@@ -44,7 +44,7 @@ export const BotFilterBarItem = ({
           s.filterIcon,
           "transition duration-300 hover:text-gray-900 dark:hover:text-purple-dark-light"
         )}
-        onClick={() => onOpenFilters(name)}
+        onClick={() => onFilterIconClick(name)}
       />
       <ul className={isOpenFilter ? `${s.listActive} bg-white dark:bg-dark-900` : s.list}>
         {values.map((value, index) => (
@@ -56,7 +56,7 @@ export const BotFilterBarItem = ({
                 : s.item,
               "transition duration-300 hover:bg-gray-900 hover:text-gray-500 dark:hover:bg-purple-dark-light dark:hover:text-white"
             )}
-            onClick={() => onFiltersChange({ ...filters, [name]: value })}
+            onClick={() => onFilterClick({ ...filters, [name]: value })}
           >
             {value}
           </li>

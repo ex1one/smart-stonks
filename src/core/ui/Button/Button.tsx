@@ -12,11 +12,13 @@ export const Button = ({ children, className, variant = "simple", ...other }: Bu
   useEffect(() => {
     switch (variant) {
       case "outline":
-        return setStyle("bg-inherit py-[16px] px-[24px] rounded-[12px] ")
+        return setStyle("bg-inherit py-[16px] px-[24px] outline-none rounded-[12px] ")
       case "rounded":
-        return setStyle("bg-purple-dark border-inherit border py-[16px] px-[24px] rounded-[12px] ")
+        return setStyle(
+          "bg-purple-dark border-inherit border outline-none py-[16px] px-[24px] rounded-[12px] "
+        )
       case "disabled":
-        return setStyle("pointer-events-none py-[16px] px-[24px] rounded-[12px] ")
+        return setStyle("pointer-events-none py-[16px] px-[24px] outline-none rounded-[12px] ")
     }
   }, [variant])
 

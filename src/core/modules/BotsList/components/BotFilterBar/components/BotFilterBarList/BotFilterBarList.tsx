@@ -5,8 +5,8 @@ import { TBotFilters } from "../../../../types"
 
 interface BotFilterBarListProps {
   filters: TBotFilters
-  onFiltersChange: (filters: TBotFilters) => void
-  onOpenFilters: (value: keyof TBotFilters) => void
+  onFilterClick: (filters: TBotFilters) => void
+  onFilterIconClick: (value: keyof TBotFilters) => void
   openFilters: {
     period: boolean
     progressSymbol: boolean
@@ -16,9 +16,9 @@ interface BotFilterBarListProps {
 }
 
 export const BotFilterBarList = ({
-  onFiltersChange,
+  onFilterClick,
   filters,
-  onOpenFilters,
+  onFilterIconClick,
   openFilters,
 }: BotFilterBarListProps) => {
   return (
@@ -26,8 +26,8 @@ export const BotFilterBarList = ({
       {ALL_FILTERS.map((filter) => (
         <BotFilterBarItem
           key={filter.name}
-          onOpenFilters={onOpenFilters}
-          onFiltersChange={onFiltersChange}
+          onFilterIconClick={onFilterIconClick}
+          onFilterClick={onFilterClick}
           isOpenFilter={openFilters[filter.name]}
           filters={filters}
           {...filter}

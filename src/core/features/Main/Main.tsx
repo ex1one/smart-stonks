@@ -1,11 +1,7 @@
 import Image from "next/image"
 import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
 
 import { Content } from "./components"
-
-import blackCircles from "public/assets/blackCircles.png"
-import whiteCircles from "public/assets/whiteCircles.png"
 
 import square1 from "public/assets/square-01.png"
 import square2 from "public/assets/square-02.png"

@@ -6,12 +6,12 @@ import { TBotFilters } from "../../types"
 interface BotFilterBarProps {
   filters: TBotFilters
   earnedOverPeriod: number
-  onFiltersChange: (filters: TBotFilters) => void
+  onFilterClick: (filters: TBotFilters) => void
   onStatsPageChange: (direction: "increase" | "decrease") => void
 }
 
 export const BotFilterBar = ({
-  onFiltersChange,
+  onFilterClick,
   filters,
   onStatsPageChange,
   earnedOverPeriod,
@@ -36,8 +36,8 @@ export const BotFilterBar = ({
           <BotFilterBarList
             filters={filters}
             openFilters={openFilters}
-            onFiltersChange={onFiltersChange}
-            onOpenFilters={doToggleFilter}
+            onFilterClick={onFilterClick}
+            onFilterIconClick={doToggleFilter}
           />
           <SortDirection onStatsPageChange={onStatsPageChange} />
         </div>

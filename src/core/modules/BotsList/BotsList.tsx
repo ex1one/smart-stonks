@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 import { Bot, BotFilterBar } from "./components"
 import { BOTS_PER_PAGE } from "./constants"
@@ -7,7 +7,6 @@ import { Bot as TBot, TBotFilters, TView } from "./types"
 import { getTotallyEarnedOverPeriod, getUsdByPeriod } from "./utils"
 
 import s from "./BotsList.module.css"
-import { getBots } from "./api"
 
 interface BotsListProps {
   bots: TBot[]
@@ -32,7 +31,6 @@ export const BotsList = ({ bots }) => {
       (bot: TBot, nextBot: TBot) =>
         getUsdByPeriod(nextBot, filters.period) - getUsdByPeriod(bot, filters.period)
     )
-  // refactor - array prototype func
   const botsToDisplay = sortedBots.slice(statsPage * BOTS_PER_PAGE, (statsPage + 1) * BOTS_PER_PAGE)
 
   const doChangeFilters = (newFilters: TBotFilters) => {
@@ -55,7 +53,7 @@ export const BotsList = ({ bots }) => {
       <BotFilterBar
         filters={filters}
         earnedOverPeriod={earnedOverPeriod}
-        onFiltersChange={doChangeFilters}
+        onFilterClick={doChangeFilters}
         onStatsPageChange={doChangeStatsPage}
       />
       <ul className={s.table}>
