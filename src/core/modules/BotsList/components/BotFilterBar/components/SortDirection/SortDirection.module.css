@@ -1,0 +1,20 @@
+.controllContainer {
+  display: flex;
+  align-items: center;
+}
+
+.controllArrow {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: color;
+  transition-duration: 200ms;
+}
+
+@media (min-width: 900px) {
+  .controllContainer {
+    margin-left: auto;
+  }
+}

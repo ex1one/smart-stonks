@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import { Bot, BotFilterBar } from "./components"
 import { BOTS_PER_PAGE } from "./constants"
@@ -7,21 +7,20 @@ import { Bot as TBot, TBotFilters, TView } from "./types"
 import { getTotallyEarnedOverPeriod, getUsdByPeriod } from "./utils"
 
 import s from "./BotsList.module.css"
+import { getBots } from "./api"
 
 interface BotsListProps {
   bots: TBot[]
 }
 
-export const BotsList = ({ bots }: BotsListProps) => {
+export const BotsList = ({ bots }) => {
+  const [statsPage, setStatsPage] = useState(0)
   const [filters, setFilters] = useState<TBotFilters>({
     period: "all",
     progressSymbol: "$",
     tradingType: "spot",
     status: "active",
   })
-
-  const [view, setView] = useState<TView>(TView.light)
-  const [statsPage, setStatsPage] = useState(0)
 
   const earnedOverPeriod = getTotallyEarnedOverPeriod(bots, filters.period)
 
@@ -36,18 +35,14 @@ export const BotsList = ({ bots }: BotsListProps) => {
   // refactor - array prototype func
   const botsToDisplay = sortedBots.slice(statsPage * BOTS_PER_PAGE, (statsPage + 1) * BOTS_PER_PAGE)
 
-  const handleChangeFilters = (newFilters: TBotFilters) => {
+  const doChangeFilters = (newFilters: TBotFilters) => {
     setFilters(newFilters)
     setStatsPage(0)
   }
 
-  const handleChangeView = (newView: TView) => {
-    setView(newView)
-  }
-
   const maxPageNumber = Math.round(sortedBots.length / BOTS_PER_PAGE) - 1
 
-  const handleChangeStatsPage = (direction: "increase" | "decrease") => {
+  const doChangeStatsPage = (direction: "increase" | "decrease") => {
     if (direction === "decrease" && statsPage === 0) return
     if (direction === "increase" && statsPage === maxPageNumber) return
 
@@ -58,12 +53,10 @@ export const BotsList = ({ bots }: BotsListProps) => {
   return (
     <div className="">
       <BotFilterBar
-        view={view}
         filters={filters}
         earnedOverPeriod={earnedOverPeriod}
-        onFiltersChange={handleChangeFilters}
-        onViewChange={handleChangeView}
-        onStatsPageChange={handleChangeStatsPage}
+        onFiltersChange={doChangeFilters}
+        onStatsPageChange={doChangeStatsPage}
       />
       <ul className={s.table}>
         {botsToDisplay.map((bot) => (

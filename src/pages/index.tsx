@@ -3,6 +3,7 @@ import { Main } from "src/core/features/Main"
 import { BotsList, getBots, Bot } from "src/core/modules"
 import Layout from "src/core/layouts/Layout"
 import { H3 } from "src/core/ui"
+import { Suspense } from "react"
 
 interface HomePageProps {
   bots: Bot[]
@@ -12,9 +13,11 @@ const HomePage: BlitzPage<{ bots }> = ({ bots }) => {
   return (
     <Layout>
       <Main />
-      <div className="text-center border-t dark:border-gray-900 border-gray-500 py-10">
+      <div className="border-t border-gray-500 py-10 text-center dark:border-gray-900">
         <H3 className="mb-10">Live Bots</H3>
-        <BotsList bots={bots} />
+        <Suspense>
+          <BotsList bots={bots} />
+        </Suspense>
       </div>
     </Layout>
   )

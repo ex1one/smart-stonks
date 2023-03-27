@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
 import { Content } from "./components"
 
@@ -22,38 +23,37 @@ export const Main = () => {
   return (
     <div
       className={clsx(
-        "h-screen overflow-hidden relative flex items-center flex-col justify-center",
-        theme === "light" ? s.lightMain : s.darkMain
+        `relative flex h-screen flex-col items-center justify-center overflow-hidden`
       )}
     >
       <Content />
       <Image
-        className="absolute sm:block hidden sm:right-20 sm:top-10 h-12 w-12 sm:h-14 sm:w-14 md:w-16 md:h-16 lg:w-[86px] lg:h-[86px] object-contain"
+        className="absolute hidden h-12 w-12 object-contain sm:right-20 sm:top-10 sm:block sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-[86px] lg:w-[86px]"
         src={square1}
         alt=""
       />
       <Image
-        className="absolute sm:block hidden sm:right-10 sm:top-30 h-12 w-12 sm:h-14 sm:w-14 md:w-16 md:h-16 lg:w-[86px] lg:h-[86px] object-contain"
+        className="sm:top-30 absolute hidden h-12 w-12 object-contain sm:right-10 sm:block sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-[86px] lg:w-[86px]"
         src={square3}
         alt=""
       />
       <Image
-        className="absolute sm:block hidden sm:right-60 sm:bottom-20 h-12 w-12 sm:h-14 sm:w-14 md:w-16 md:h-16 lg:w-[86px] lg:h-[86px] object-contain"
+        className="absolute hidden h-12 w-12 object-contain sm:right-60 sm:bottom-20 sm:block sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-[86px] lg:w-[86px]"
         src={square5}
         alt=""
       />
       <Image
-        className="absolute sm:block hidden sm:left-10 sm:top-10 h-12 w-12 sm:h-14 sm:w-14 md:w-16 md:h-16 lg:w-[86px] lg:h-[86px] object-contain"
+        className="absolute hidden h-12 w-12 object-contain sm:left-10 sm:top-10 sm:block sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-[86px] lg:w-[86px]"
         src={square4}
         alt=""
       />
       <Image
-        className="absolute sm:block hidden sm:-left-5 sm:top-30 h-12 w-12 sm:h-14 sm:w-14 md:w-16 md:h-16 lg:w-[86px] lg:h-[86px] object-contain"
+        className="sm:top-30 absolute hidden h-12 w-12 object-contain sm:-left-5 sm:block sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-[86px] lg:w-[86px]"
         src={square2}
         alt=""
       />
       <Image
-        className="absolute sm:block hidden sm:left-60 sm:bottom-20 h-12 w-12 sm:h-14 sm:w-14 md:w-16 md:h-16 lg:w-[86px] lg:h-[86px] object-contain"
+        className="absolute hidden h-12 w-12 object-contain sm:left-60 sm:bottom-20 sm:block sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-[86px] lg:w-[86px]"
         src={square6}
         alt=""
       />

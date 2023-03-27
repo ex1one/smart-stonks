@@ -1,23 +1,15 @@
 import { BotStatus } from "../BotStatus"
-
-interface BotDescProps {
-  id: number
-  depositActual: number | null
-  symbol: string
-  leverage: number
-  isPaused: boolean
-  isArchived: boolean
-}
+import { Bot } from "../../../../types"
 
 export const BotDesc = ({
   id,
-  isArchived,
-  isPaused,
+  state_isArchived,
+  state_isPaused,
   leverage,
   symbol,
-  depositActual,
-}: BotDescProps) => {
-  const actDep = depositActual?.toFixed(0) || "-"
+  pnl_deposit_actual,
+}: Bot) => {
+  const actDep = pnl_deposit_actual?.toFixed(0) || "-"
 
   return (
     <div className="grow overflow-hidden px-3 py-1">
@@ -26,8 +18,8 @@ export const BotDesc = ({
         <div className="pl-2 font-bold text-gray-500">{leverage}x</div>
         <div className="pl-2 font-bold text-gray-500">${actDep}</div>
       </div>
-      <div className="flex items-center justify-start pb-1.5 font-bold text-gray-400 text-[13px] overflow-hidden text-ellipsis whitespace-nowrap">
-        <BotStatus isPaused={isPaused} isArchived={isArchived} />
+      <div className="text-gray-400 flex items-center justify-start overflow-hidden text-ellipsis whitespace-nowrap pb-1.5 text-[13px] font-bold">
+        <BotStatus isPaused={state_isPaused} isArchived={state_isArchived} />
         {id}
       </div>
     </div>

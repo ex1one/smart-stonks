@@ -22,32 +22,21 @@ export const Bot = ({ bot, options }: BotProps) => {
   const botProgress = progressSymbol + earnedOverPeriod?.toFixed(2)
 
   return (
-    <div className="flex justify-between dark:border-[#262840] border border-[#E2E2ED] items-center rounded-2xl overflow-hidden max-h-fit dark:bg-dark-900 bg-white shadow">
-      <DepositProgressVertical
-        botType={bot.type}
-        depositActual={bot.pnl_deposit_actual!}
-        earnedUsdByCells={bot.pnl_earnedUsdByCells!}
-      />
-      <BotDesc
-        depositActual={bot.pnl_deposit_actual}
-        id={bot.id}
-        leverage={bot.leverage}
-        symbol={bot.symbol}
-        isArchived={bot.state_isArchived!}
-        isPaused={bot.state_isPaused!}
-      />
+    <div className="flex max-h-fit items-center justify-between overflow-hidden rounded-2xl border border-[#E2E2ED] bg-white shadow dark:border-[#262840] dark:bg-dark-900">
+      <DepositProgressVertical {...bot} />
+      <BotDesc {...bot} />
 
       <div className="flex flex-col items-center pr-3">
         <div
           className={clsx(
-            "w-[80px] text-right mb-1 -mt-[3px]",
+            "mb-1 -mt-[3px] w-[80px] text-right",
             earnedOverPeriod == 0 && "text-gray-500"
           )}
         >
           {botProgress}
         </div>
 
-        <div className="font-bold text-[12px] text-[#9ca3af]">
+        <div className="text-[12px] font-bold text-[#9ca3af]">
           <TimeElapsed date={bot.stats_lastFinishedCyclaDate!} />
         </div>
       </div>

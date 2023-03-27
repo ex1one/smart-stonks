@@ -1,79 +1,10 @@
-.container {
-  width: 100%;
-  min-height: 50px;
-  padding: 0 5% 0 5%;
-  margin-bottom: 10px;
-}
-
-.bar {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 15px 2% 8px 2%;
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.filters {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.earnedContainer {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.earned {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  font-size: 15px;
-  margin-left: auto;
-  margin-right: 12px;
-  margin-bottom: -2px;
-}
-
-.arrowUp {
-  width: 19px;
-  height: 19px;
-  margin-right: 5px;
-  margin-top: -3px;
-}
-
-.listContainer {
+.wrapper {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   min-height: 24px;
   padding: 0 0.3%;
-}
-
-.view {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  min-height: 24px;
-  padding: 3px 13px;
-  color: rgb(107 114 128);
-  border-radius: 5px;
-  transition: all;
-  transition-duration: 250ms;
-  cursor: pointer;
-  margin-left: 4px;
-}
-
-.viewIcon {
-  width: 19px;
-  height: 19px;
-  margin-left: 7px;
 }
 
 .list {
@@ -85,14 +16,13 @@
   transform-origin: left 0%;
 }
 
-.listActive {
-  position: relative;
-  display: flex;
-  align-items: center;
-  transform: scaleX(100%);
+.filterIcon {
+  width: 38px;
+  height: 38px;
   transition: all;
-  transition-duration: 250ms;
-  transform-origin: left 0%;
+  transition-duration: 200ms;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .item {
@@ -112,28 +42,14 @@
   cursor: pointer;
 }
 
-.filterIcon {
-  width: 38px;
-  height: 38px;
-  transition: all;
-  transition-duration: 200ms;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.controllContainer {
+.listActive {
+  position: relative;
   display: flex;
   align-items: center;
-}
-
-.controllArrow {
-  width: 30px;
-  height: 30px;
-  padding: 4px;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: color;
-  transition-duration: 200ms;
+  transform: scaleX(100%);
+  transition: all;
+  transition-duration: 250ms;
+  transform-origin: left 0%;
 }
 
 @media (max-width: 900px) {
@@ -213,11 +129,11 @@
     width: 100%;
   }
 
-  .listContainer:not(:first-child) {
+  .wrapper:not(:first-child) {
     padding: 0 1.8%;
   }
 
-  .listContainer:first-child {
+  .wrapper:first-child {
     padding-right: 1.8%;
   }
 
@@ -226,19 +142,7 @@
     color: rgb(107 114 128);
   }
 
-  .controllContainer {
-    margin-left: auto;
-  }
-
-  .filters {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  .listContainer {
+  .wrapper {
     margin-bottom: 0;
   }
 }
